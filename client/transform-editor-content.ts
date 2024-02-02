@@ -1,6 +1,12 @@
+import { IParser } from './iparser.js';
 import { stripHtmlTags } from './strip-html-tags.js';
+import { TokenType } from './token.js';
 
-export function transformEditorContent(text, parser, colors) {
+export function transformEditorContent(
+    text: string,
+    parser: IParser,
+    colors: Record<TokenType, string>
+): string {
     text = stripHtmlTags(text);
     const tokens = parser.getTokens(text)
 

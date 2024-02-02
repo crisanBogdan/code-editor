@@ -1,10 +1,12 @@
 import assert from 'node:assert'
 import { describe, it } from 'node:test'
-import { jsParser } from '../js-parser.js';
-import { TOKEN_TYPE } from '../token-type.js';
+import { JsParser } from '../js-parser.js';
+import { TokenType } from '../token.js';
 
 
 describe('jsParser', () => {
+    const jsParser = new JsParser()
+
     it('should parse variables', () => {
         const tokens = jsParser.getTokens(`
             var x = 1, y = 2;
@@ -12,7 +14,7 @@ describe('jsParser', () => {
             let a = o.x;
         `)
         const variables = new Set(
-            tokens.filter(t => t.type === TOKEN_TYPE.VARIABLE).map(t => t.value))
+            tokens.filter(t => t.type === TokenType.Variable).map(t => t.value))
 
         assert.equal(variables.has('x'), true)
         assert.equal(variables.has('y'), true)  
@@ -26,7 +28,7 @@ describe('jsParser', () => {
     it('should parse numbers', () => {
         const tokens = jsParser.getTokens('var x = 1 + 2 / 3.5 * 4 - .25;')
         const numbers = new Set(
-            tokens.filter(t => t.type === TOKEN_TYPE.NUMBER).map(t => t.value))
+            tokens.filter(t => t.type === TokenType.Number).map(t => t.value))
 
         assert.equal(numbers.has('1'), true)
         assert.equal(numbers.has('2'), true)  
@@ -43,7 +45,7 @@ describe('jsParser', () => {
             ('123' + '345')
         `)
         const strings = new Set(
-            tokens.filter(t => t.type === TOKEN_TYPE.STRING).map(t => t.value))
+            tokens.filter(t => t.type === TokenType.String).map(t => t.value))
         
         assert.equal(strings.has('"xxxxxxxxxxxxxxx"'), true)
         assert.equal(strings.has("'sdsdsdssd'"), true)  
@@ -63,7 +65,7 @@ describe('jsParser', () => {
 
         `)
         const operators = new Set(
-            tokens.filter(t => t.type === TOKEN_TYPE.OPERATOR).map(t => t.value))
+            tokens.filter(t => t.type === TokenType.Operator).map(t => t.value))
         
         assert.equal(operators.has('='), true)
         assert.equal(operators.has(':'), true)
@@ -88,7 +90,9 @@ describe('jsParser', () => {
             let x = ((1 + 2)), y = [];
             if (x) { }
         `)
-        const parenthesis = tokens.filter(t => t.type === TOKEN_TYPE.PARENTHESIS).map(t => t.value)
+        const parenthesis = tokens
+            .filter(t => t.type === TokenType.Parenthesis)
+            .map(t => t.value)
         
         assert.equal(parenthesis.includes('('), true)
         assert.equal(parenthesis.includes(')'), true)
@@ -96,7 +100,11 @@ describe('jsParser', () => {
         assert.equal(parenthesis.includes(']'), true)
         assert.equal(parenthesis.includes('{'), true)
         assert.equal(parenthesis.includes('}'), true)
-        assert.equal(parenthesis.length == 10, true, 'should be 10 parenthesis')  
+        assert.equal(
+            parenthesis.length == 10,
+            true,
+            'should be 10 parenthesis'
+        )  
     })
 
     it('should parse all keywords', () => {
@@ -116,7 +124,9 @@ describe('jsParser', () => {
             }
             try { switch (x) { case 1: break } } catch(e) { }
         `)
-        const keywords = new Set(tokens.filter(t => t.type === TOKEN_TYPE.KEYWORD).map(t => t.value))
+        const keywords = new Set(tokens
+            .filter(t => t.type === TokenType.Keyword)
+            .map(t => t.value))
 
         assert.equal(keywords.has('const'), true)
         assert.equal(keywords.has('let'), true)
@@ -168,7 +178,9 @@ describe('jsParser', () => {
             ${examples[2]}
         `)
 
-        const comments = new Set(tokens.filter(t => t.type === TOKEN_TYPE.COMMENT).map(t => t.value))
+        const comments = new Set(tokens
+            .filter(t => t.type === TokenType.Comment)
+            .map(t => t.value))
 
         assert.equal(comments.has(examples[0]), true)
         assert.equal(comments.has(examples[1]), true)
