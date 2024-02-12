@@ -1,8 +1,60 @@
 import { IParser } from './iparser.js';
-import { Token, TokenType } from './token.js'
+import { Token, TokenType } from './token.js';
 
 export class JsParser implements IParser {
-    static keywords = { 'while': true, 'let': true, 'await': true, 'yield': true, 'static': true, 'enum': true, 'implements': true, 'interface': true, 'package': true, 'private': true, 'protected': true, 'public': true, 'case': true, 'async': true, 'catch': true, 'class': true, 'const': true, 'continue': true, 'debugger': true, 'get': true, 'set': true, 'from': true, 'of': true, 'default': true, 'delete': true, 'do': true, 'else': true, 'export': true, 'extends': true, 'false': true, 'finally': true, 'for': true, 'function': true, 'function*': true, 'if': true, 'import': true, 'in': true, 'instanceof': true, 'new': true, 'null': true, 'return': true, 'super': true, 'switch': true, 'this': true, 'throw': true, 'true': true, 'try': true, 'typeof': true, 'var': true, 'void': true, 'break': true, }
+    static keywords = {
+        while: true,
+        let: true,
+        await: true,
+        yield: true,
+        static: true,
+        enum: true,
+        implements: true,
+        interface: true,
+        package: true,
+        private: true,
+        protected: true,
+        public: true,
+        case: true,
+        async: true,
+        catch: true,
+        class: true,
+        const: true,
+        continue: true,
+        debugger: true,
+        get: true,
+        set: true,
+        from: true,
+        of: true,
+        default: true,
+        delete: true,
+        do: true,
+        else: true,
+        export: true,
+        extends: true,
+        false: true,
+        finally: true,
+        for: true,
+        function: true,
+        'function*': true,
+        if: true,
+        import: true,
+        in: true,
+        instanceof: true,
+        new: true,
+        null: true,
+        return: true,
+        super: true,
+        switch: true,
+        this: true,
+        throw: true,
+        true: true,
+        try: true,
+        typeof: true,
+        var: true,
+        void: true,
+        break: true,
+    };
 
     private start = 0;
     private current = 0;
@@ -10,10 +62,10 @@ export class JsParser implements IParser {
     private text = '';
 
     getTokens(text = ''): Token[] {
-        this.start = 0
-        this.current = 0
-        this.tokens = []
-        this.text = text
+        this.start = 0;
+        this.current = 0;
+        this.tokens = [];
+        this.text = text;
 
         while (!this.atEnd()) {
             switch (this.text[this.current]) {
@@ -34,38 +86,36 @@ export class JsParser implements IParser {
                 case '~':
                 case '*':
                 case '-':
-                case '+': { 
-                    this.tokens.push({ 
+                case '+': {
+                    this.tokens.push({
                         type: TokenType.Operator,
                         value: this.text[this.current],
                     });
-                    break
+                    break;
                 }
                 case '/': {
-                    if (this.peekNext() === '*' || this.peekNext() === '/') { 
-                        this.start = this.current
-                        this.parseComment() 
-                    }   
-                    else { 
+                    if (this.peekNext() === '*' || this.peekNext() === '/') {
+                        this.start = this.current;
+                        this.parseComment();
+                    } else {
                         this.tokens.push({
                             type: TokenType.Operator,
-                            value: this.text[this.current]
-                        }); 
-                    }
-                    break
-                }
-                case '.': {
-                    if (/\d/.test(this.peekNext())) { 
-                        this.start = this.current
-                        this.parseNumber()
-                    }
-                    else {
-                        this.tokens.push({ 
-                            type: TokenType.Operator,
-                            value: this.text[this.current]
+                            value: this.text[this.current],
                         });
                     }
-                    break
+                    break;
+                }
+                case '.': {
+                    if (/\d/.test(this.peekNext())) {
+                        this.start = this.current;
+                        this.parseNumber();
+                    } else {
+                        this.tokens.push({
+                            type: TokenType.Operator,
+                            value: this.text[this.current],
+                        });
+                    }
+                    break;
                 }
                 case '(':
                 case ')':
@@ -73,84 +123,95 @@ export class JsParser implements IParser {
                 case ']':
                 case '{':
                 case '}': {
-                    this.tokens.push({ 
+                    this.tokens.push({
                         type: TokenType.Parenthesis,
-                        value: this.text[this.current] 
+                        value: this.text[this.current],
                     });
-                    break
+                    break;
                 }
                 case ' ':
                 case '\r':
                 case '\n':
-                case '\t': { break }
+                case '\t': {
+                    break;
+                }
                 default: {
-                    this.start = this.current
-                    if (/['"`]/.test(this.text[this.current])) 
-                        this.parseString()
-                    else if (/\d/.test(this.text[this.current])) 
-                        this.parseNumber()
-                    else if (/[\w_]/.test(this.text[this.current])) 
-                        this.parseWord()
+                    this.start = this.current;
+                    if (/['"`]/.test(this.text[this.current]))
+                        this.parseString();
+                    else if (/\d/.test(this.text[this.current]))
+                        this.parseNumber();
+                    else if (/[\w_]/.test(this.text[this.current]))
+                        this.parseWord();
                 }
             }
-            this.advance()
+            this.advance();
         }
 
-        return this.tokens
+        return this.tokens;
     }
 
     private parseString() {
-        this.advance()
-        while (!this.atEnd() && !/['"`]/.test(this.peek())) this.advance()
-        this.tokens.push({ 
+        this.advance();
+        while (!this.atEnd() && !/['"`]/.test(this.peek())) this.advance();
+        this.tokens.push({
             type: TokenType.String,
-            value: this.text.slice(this.start, this.current + 1) 
-        })
+            value: this.text.slice(this.start, this.current + 1),
+        });
     }
-    
+
     private parseWord() {
-        while (!this.atEnd() && /[\w_]/.test(this.peek())) this.advance()
-        let w = this.text.slice(this.start, this.current)
-        if (w == 'function' && this.peek() == '*') w += this.peek()
-        this.tokens.push({ 
-            type: JsParser.keywords[w as keyof typeof JsParser.keywords] 
+        while (!this.atEnd() && /[\w_]/.test(this.peek())) this.advance();
+        let w = this.text.slice(this.start, this.current);
+        if (w == 'function' && this.peek() == '*') w += this.peek();
+        this.tokens.push({
+            type: JsParser.keywords[w as keyof typeof JsParser.keywords]
                 ? TokenType.Keyword
                 : TokenType.Variable,
-            value: w
-        })
-        this.goBack()
+            value: w,
+        });
+        this.goBack();
     }
 
     private parseNumber() {
-        while (!this.atEnd() && /[\d\.]/.test(this.peek())) this.advance()
-        this.tokens.push({ 
+        while (!this.atEnd() && /[\d\.]/.test(this.peek())) this.advance();
+        this.tokens.push({
             type: TokenType.Number,
-            value: this.text.slice(this.start, this.current) 
-        })
-        this.goBack()
+            value: this.text.slice(this.start, this.current),
+        });
+        this.goBack();
     }
 
     private parseComment() {
-        this.advance()
+        this.advance();
         if (this.peek() == '/') {
-            while (!this.atEnd() && !/\n/.test(this.peekNext())) { 
-                this.advance()
+            while (!this.atEnd() && !/\n/.test(this.peekNext())) {
+                this.advance();
             }
-        }
-        else {
-            while (!this.atEnd() && this.peek() !== '/') { 
-                this.advance() 
+        } else {
+            while (!this.atEnd() && this.peek() !== '/') {
+                this.advance();
             }
         }
         this.tokens.push({
-            type: TokenType.Comment, 
-            value: this.text.slice(this.start, this.current + 1) 
-        })
+            type: TokenType.Comment,
+            value: this.text.slice(this.start, this.current + 1),
+        });
     }
 
-    private atEnd() { return this.current >= this.text.length; }
-    private peek() { return this.text[this.current] }
-    private peekNext() { return this.text[this.current + 1] }
-    private advance() { return this.text[this.current++] }
-    private goBack() { return this.text[this.current--] }
+    private atEnd() {
+        return this.current >= this.text.length;
+    }
+    private peek() {
+        return this.text[this.current];
+    }
+    private peekNext() {
+        return this.text[this.current + 1];
+    }
+    private advance() {
+        return this.text[this.current++];
+    }
+    private goBack() {
+        return this.text[this.current--];
+    }
 }

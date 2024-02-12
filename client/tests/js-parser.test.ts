@@ -160,7 +160,7 @@ describe('jsParser', () => {
     
     it('should parse comments', () => {
         const examples = [
-            '// this variable is quite important i must say\n',
+            '// this variable is quite important i must say',
             `/**
             * brilliant documentation
             * yes indeed

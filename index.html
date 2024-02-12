@@ -7,8 +7,13 @@
         <form class="username-container">
             <label for="username">Your username:</label>
             <input type="text" id="username">
-            <button type="submit" id="change-username">Update</button>
         </form>
+        <dialog id="message-display">
+            <p id="message-display-text"></p>
+            <form method="dialog">
+                <button>Ok</button>
+            </form>
+        </dialog>
         <script type="module" src="./dist/client/index.js"></script>
     </body>
 </html>

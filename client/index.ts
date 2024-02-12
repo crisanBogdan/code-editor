@@ -2,96 +2,124 @@ import { transformEditorContent } from './transform-editor-content.js';
 import { JsParser } from './js-parser.js';
 import { TokenType } from './token.js';
 import { AppClientSocket } from './client-socket.js';
-import { ClientJoinMessage, ClientMessageType, Message } from '../message.js';
+import {
+    CodeTextChangeMessage,
+    ChangeNameMessage,
+} from '../message.js';
+import { debounce } from '../utils.js';
+import { handleSocketMessage } from './handle-socket-message.js';
+import { CaretPosition } from './caret-position.js';
 
-const editor = document.getElementById('editor')
+const editor = document.getElementById('editor');
 
 if (!editor) {
-    throw new Error('Missing element with id \'editor\'');
+    throw new Error("Missing element with id 'editor'");
 }
 
-const usernameInput = 
-    document.getElementById('username') as HTMLInputElement | null
+const usernameInput = document.getElementById(
+    'username'
+) as HTMLInputElement | null;
 
 if (!usernameInput) {
-    throw new Error('Missing element with id \'username\'');
+    throw new Error("Missing element with id 'username'");
+} else {
+    usernameInput.value = `Anon ${Math.random().toString().slice(2, 8)}`;
 }
 
-const changeUsernameBtn = document.getElementById('change-username')
-const range = document.createRange()
+const ws = new AppClientSocket('localhost:3000/ws?' 
+    + `username=${encodeURIComponent(usernameInput.value)}`
+    + `&channel_id=${encodeURIComponent(window.location.pathname.slice(1))}`
+);
+const jsParser = new JsParser();
+const caretPosition = new CaretPosition(editor, jsParser)
 
-const ws = new AppClientSocket('localhost:3000/ws')
-const jsParser = new JsParser()
+const cssClasses = {
+    [TokenType.Keyword]: 'keyword',
+    [TokenType.Variable]: 'variable',
+    [TokenType.Operator]: 'operator',
+    [TokenType.Parenthesis]: 'parenthesis',
+    [TokenType.Number]: 'number',
+    [TokenType.String]: 'string',
+    [TokenType.Comment]: 'comment',
+};
 
-const colors = {
-    [TokenType.Keyword]: 'red',
-    [TokenType.Variable]: 'white',
-    [TokenType.Operator]: 'blue',
-    [TokenType.Parenthesis]: 'yellow',
-    [TokenType.Number]: 'purple',
-    [TokenType.String]: 'orange',
-    [TokenType.Comment]: 'green',
-}
+ws.onMessage((data) => {
+    handleSocketMessage(
+        data,
+        (path: string) => {
+            window.history.pushState('', '', String(path));
+        },
+        displayMessage,
+        (text: string) => {
+            caretPosition.save()
+            // replace <br> before they get stripped
+            text = text.replaceAll('<br>', '\n')
+            editor.innerHTML = String(transformEditorContent(text, jsParser, cssClasses))
+            caretPosition.restore()
+        },
+    )
+});
 
-if (usernameInput) {
-    usernameInput.value = `Anon ${Math.random().toString().slice(2,8)}`
-}
+usernameInput.addEventListener('click', () => {
+    usernameInput.select();
+});
 
-ws.onMessage(data => {
-    console.log(data)
+usernameInput.addEventListener('change', () => {
+    updateUsernameDebounced(ws, usernameInput) 
 })
 
-usernameInput?.addEventListener('click', () => {
-    usernameInput?.select()
-})
+window.addEventListener('load', () => {
+    editor.focus();
+});
 
-changeUsernameBtn?.addEventListener('click', e => {
-    e.preventDefault()
-    ws.send(new Message(
-        ClientMessageType.SetUsername, 
-        usernameInput?.value
-    ).toJSON())
-})
+let previousText = '';
+const ignoredKeys = ['Enter', 'Backspace', 'Tab', 'Delete', ' ', 'ArrowLeft', 'ArrowUp',
+    'ArrowDown', 'ArrorRight', 'Control', 'Shift']
+editor.addEventListener('keyup', (e) => {
+    if (ignoredKeys.includes(e.key)) return
+    if (editor.innerHTML === previousText) return
 
-document.addEventListener('load', () => {
-    editor.focus()
-    debugger
-    ws.send(new ClientJoinMessage({
-        username: usernameInput.value,
-        channelId: window.location.pathname.slice(1),
-    }).toJSON())
-})
-
-editor.addEventListener('keyup', e => {
-    if (e.key.startsWith('Arrow') || e.altKey) {
-        return
-    }
-
-    transformEditorContentDebounced()
-})
+    transformEditorContentDebounced((content) => {
+        previousText = content
+        handleEditorContent(content, ws);
+    })
+});
 
 const transformEditorContentDebounced = debounce(
-    () => {
-        editor.innerHTML = transformEditorContent(
+    (onFinish: (newContent: string) => void) => {
+        caretPosition.save()
+        const newContent = transformEditorContent(
             editor.innerText,
             jsParser,
-            colors,
-        )
-        setCaretToEnd()
-    }, 
-    500)
+            cssClasses
+        );
+        editor.innerHTML = newContent
+        caretPosition.restore()
+        onFinish(newContent)
+}, 500);
 
-function debounce(f: (...args: any[]) => void, time: number) {
-    let timeoutId: number;
-    return function(...args: any[]) {
-        window.clearTimeout(timeoutId)
-        timeoutId = window.setTimeout(() => f(...args), time)
-    }
+const updateUsernameDebounced = debounce(
+    (ws: AppClientSocket, usernameInput: HTMLInputElement) => {
+        ws.send(
+            new ChangeNameMessage(usernameInput.value).toJSON()
+        );
+}, 500)
+
+function handleEditorContent(content: string, socket: AppClientSocket) {
+    if (!content) return
+    socket.send(new CodeTextChangeMessage(content).toJSON())
 }
 
-function setCaretToEnd() {
-    range.setStart(editor!, editor!.childNodes.length)
-    range.collapse(true)
-    window.getSelection()?.removeAllRanges()
-    window.getSelection()?.addRange(range)
+function displayMessage(text: string) {
+    const dialog = 
+        document.getElementById('message-display') as HTMLDialogElement
+    const textEl = document.getElementById('message-display-text')
+    if (!dialog || !textEl) {
+        throw new Error(`Missing el with id: 'message-display' or with id: 'message-display-text'.`)
+    }
+    if (!(dialog instanceof HTMLDialogElement)) {
+        throw new Error('Not a dialog.')
+    }
+    textEl.textContent = text
+    dialog.showModal()
 }

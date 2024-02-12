@@ -1,22 +1,18 @@
+import { deepEquals } from "./utils.js"
 
-export enum ServerMessageType {
-    UserJoined          = '0',
-    UserDisconnected    = '1',
-    UserCodeText        = '2',
-    UserChangedName     = '3',
-    Error               = '4',
-    JoinedChannel       = '5',
-}
-
-export enum ClientMessageType {
-    SetUsername  = '6',
-    CodeText     = '7',
-    Join         = '8',
+export enum MessageType {
+    ChangeName        = '1',
+    CodeTextChange    = '2',
+    UserJoined        = '3',
+    UserDisconnected  = '4',
+    Error             = '5',
+    UserChangedName   = '6',
+    JoinedChannel     = '7',
 }
 
 export class Message<T> {
     constructor(
-        public type: ServerMessageType | ClientMessageType, 
+        public type: MessageType, 
         public payload: T
     ) { }
 
@@ -32,58 +28,46 @@ export class Message<T> {
         return new Message(type, payload)
     }
 
-    private deepEquals(a: unknown, b: unknown): boolean {
-        if (!a || !b) return a === b
-        if (typeof a !== typeof b) return false
-        if (typeof a === 'object') {
-            for (const k of Object.keys(a)) {
-                if (!this.deepEquals(
-                    a[k as keyof typeof a],
-                    b[k as keyof typeof b],
-                )) {
-                    return false
-                }
-            }
-            return true
-        }
-        else if (Array.isArray(a)) {
-            for (let i=0;i<a.length;i++) {
-                if (!this.deepEquals(a[i],(b as typeof a)[i])) {
-                    return false
-                }
-            }
-            return true
-        }
-        else return a === b
-    }
-
     equals(other: Message<unknown>): boolean {
         if (this.type !== other.type) {
             return false
         }
-
-        return this.deepEquals(this.payload, other.payload)
+        return deepEquals(this.payload, other.payload)
     }
 }
 
-export class ClientJoinMessage
-    extends Message<{username: string; channelId: string;}>
+export class ChangeNameMessage extends Message<string> {
+    constructor(payload: string) {
+        super(MessageType.ChangeName, payload)
+    }
+}
+
+export class CodeTextChangeMessage extends Message<string> {
+    constructor(payload: string) {
+        super(MessageType.CodeTextChange, payload)
+    }
+}
+
+export class UserJoinedMessage extends Message<string> {
+    constructor(payload: string) {
+        super(MessageType.UserJoined, payload)
+    }
+}
+export class JoinedMessage extends Message<{ channelId: string; text: string; }> {
+    constructor(payload: { channelId: string; text: string; }) {
+        super(MessageType.JoinedChannel, payload)
+    }
+}
+export class UserDisconnectedMessage extends Message<string> {
+    constructor(payload: string) {
+        super(MessageType.UserDisconnected, payload)
+    }
+}
+
+export class UserChangedNameMessage extends Message<{
+    from: string; to: string;}> 
 {
-    constructor(payload: {username: string; channelId: string;}) {
-        super(ClientMessageType.Join, payload)
+    constructor(payload: { from: string; to: string;}) {
+        super(MessageType.UserChangedName, payload)
     }
 }
-
-export class ClientSetUsernameMessage extends Message<string> {
-    constructor(payload: string) {
-        super(ClientMessageType.Join, payload)
-    }
-}
-
-
-export class ClientCodeTextMessage extends Message<string> {
-    constructor(payload: string) {
-        super(ClientMessageType.Join, payload)
-    }
-}
-

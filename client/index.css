@@ -13,10 +13,26 @@ code {
     padding: .5rem;
 }
 
+.keyword      { color: red; }
+.variable     { color: yellow; }
+.operator     { color: white; }
+.parenthesis  { color: violet; }
+.number       { color: indigo; }
+.string       { color: orange; }
+.comment      { color: green; }
+
 .username-container {
     position: fixed;
     bottom: 0;
     background-color: #fefefe;
     padding: 4px;
     /* width: 100%; */
+}
+
+#message-display[open] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 4px;
+    margin-top: 1rem;
 }

@@ -11,17 +11,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.2",
+    "express-bouncer": "^0.2.0",
+    "express-rate-limit": "^7.1.5",
     "express-ws": "^5.0.2",
+    "toobusy-js": "^0.5.1",
     "uuid": "^9.0.1",
     "ws": "^8.16.0"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/express-ws": "^3.0.4",
     "@types/node": "^20.11.15",
-    "@types/uuid": "^9.0.8",
-    "nodemon": "^3.0.3",
-    "supertest": "^6.3.4"
+    "@types/toobusy-js": "^0.5.4",
+    "@types/uuid": "^9.0.8"
   }
 }
