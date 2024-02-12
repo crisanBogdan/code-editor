@@ -1,15 +1,20 @@
 import { v4 as uuid, validate as validate_uuid } from 'uuid';
-import { AppChannel, AppChannelEvents } from "./channel.js";
-import { AppConfig } from "./config.js";
-import { ILogger } from "./logger.js";
-import { AppSocketConnection, IAppWebSocket } from "./socket-connection.js";
+import { AppChannel, AppChannelEvents } from './channel.js';
+import { AppConfig } from './config.js';
+import { ILogger } from './logger.js';
+import { AppSocketConnection, IAppWebSocket } from './socket-connection.js';
 
 let channels: AppChannel[] = [];
 // limit ws connections
 const wsConnectionsByIp = new Map<string, number>();
 
 export function handleWebSocket({
-    ws, config, logger, ip, username, requestedChannelId,
+    ws,
+    config,
+    logger,
+    ip,
+    username,
+    requestedChannelId,
 }: {
     ws: IAppWebSocket;
     config: AppConfig;
@@ -19,24 +24,23 @@ export function handleWebSocket({
     requestedChannelId?: string;
 }): AppSocketConnection | null {
     if (!ip) {
-        ws.close()
-        return null
+        ws.close();
+        return null;
     }
-    
-    const connectionsByIp = wsConnectionsByIp.get(ip) ?? 0
-    if (connectionsByIp > config.maxWsConnectionsPerIp) {
-        logger.error(`${ip} websocket connection limit reached.`)
-        ws.close(undefined, 'Maximum connection limit reached')
-        return null
 
+    const connectionsByIp = wsConnectionsByIp.get(ip) ?? 0;
+    if (connectionsByIp > config.maxWsConnectionsPerIp) {
+        logger.error(`${ip} websocket connection limit reached.`);
+        ws.close(undefined, 'Maximum connection limit reached');
+        return null;
     } else {
-        wsConnectionsByIp.set(ip, connectionsByIp + 1)
+        wsConnectionsByIp.set(ip, connectionsByIp + 1);
     }
 
     if (!username) {
-        logger.error(`${ip} no username provided.`)
-        ws.close(undefined, 'No username provided')
-        return null
+        logger.error(`${ip} no username provided.`);
+        ws.close(undefined, 'No username provided');
+        return null;
     }
 
     const connection = new AppSocketConnection(uuid(), username, ip, ws);
@@ -50,7 +54,7 @@ export function handleWebSocket({
                 ? String(requestedChannelId)
                 : uuid(),
             config,
-            logger,
+            logger
         );
         channels.push(channel);
         channel.on(AppChannelEvents.Empty, () => {
@@ -60,14 +64,11 @@ export function handleWebSocket({
     }
 
     ws.on('close', () => {
-        wsConnectionsByIp.set(
-            ip,
-            wsConnectionsByIp.get(ip) ?? 0 - 1
-        )
+        wsConnectionsByIp.set(ip, wsConnectionsByIp.get(ip) ?? 0 - 1);
     });
-    ws.on('error', e => {
-        logger.error(`${ip} general ws error: ${e}`)
+    ws.on('error', (e) => {
+        logger.error(`${ip} general ws error: ${e}`);
     });
-    
-    return connection
+
+    return connection;
 }

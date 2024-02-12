@@ -1,6 +1,6 @@
 export function stripHtmlTags(text = ''): string {
-    const openTagRE = new RegExp(/<[\w]+[\s\w="';,:-]*>/)
-    const closeTagRE = new RegExp(/<\/[\w]+>/)
+    const openTagRE = new RegExp(/<[\w]+[\s\w="';,:-]*>/);
+    const closeTagRE = new RegExp(/<\/[\w]+>/);
 
     let result;
 

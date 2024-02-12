@@ -37,11 +37,7 @@ describe('deepEquals', () => {
 });
 
 describe('throttling', () => {
-    it('should block requests that are before the throttle limit', () => {
+    it('should block requests that are before the throttle limit', () => {});
 
-    })
-
-    it('should allow requests again after the throttle limit', () => {
-
-    })
-})
+    it('should allow requests again after the throttle limit', () => {});
+});

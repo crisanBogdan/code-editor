@@ -1,4 +1,4 @@
-import { createWriteStream } from 'fs'
+import { createWriteStream } from 'fs';
 
 const output = createWriteStream('./stdout.log', { flags: 'a' });
 const errorOutput = createWriteStream('./stderr.log', { flags: 'a' });
@@ -9,15 +9,15 @@ export interface ILogger {
 }
 
 class Logger implements ILogger {
-    private logger = new console.Console(output, errorOutput)
+    private logger = new console.Console(output, errorOutput);
 
     log(msg: string) {
-        this.logger.log(new Date().toISOString() + ' ' + msg)
+        this.logger.log(new Date().toISOString() + ' ' + msg);
     }
 
     error(msg: string) {
-        this.logger.error(new Date().toISOString() + ' ' + msg)
+        this.logger.error(new Date().toISOString() + ' ' + msg);
     }
 }
 
-export const logger = new Logger()
+export const logger = new Logger();

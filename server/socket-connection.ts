@@ -16,13 +16,13 @@ export interface IAppWebSocket {
 export type AppSocketConnectionEvents = 'message' | 'close' | 'error';
 
 export class AppSocketConnection {
-    channel?: AppChannel
+    channel?: AppChannel;
 
     constructor(
         public id: string,
         public username: string,
         public ip: string,
-        private wsInterface: IAppWebSocket,
+        private wsInterface: IAppWebSocket
     ) {
         assert.ok(id.length > 0);
         assert.ok(username.length > 0);

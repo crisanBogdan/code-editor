@@ -2,10 +2,7 @@ import { transformEditorContent } from './transform-editor-content.js';
 import { JsParser } from './js-parser.js';
 import { TokenType } from './token.js';
 import { AppClientSocket } from './client-socket.js';
-import {
-    CodeTextChangeMessage,
-    ChangeNameMessage,
-} from '../message.js';
+import { CodeTextChangeMessage, ChangeNameMessage } from '../message.js';
 import { debounce } from '../utils.js';
 import { handleSocketMessage } from './handle-socket-message.js';
 import { CaretPosition } from './caret-position.js';
@@ -26,12 +23,13 @@ if (!usernameInput) {
     usernameInput.value = `Anon ${Math.random().toString().slice(2, 8)}`;
 }
 
-const ws = new AppClientSocket('localhost:3000/ws?' 
-    + `username=${encodeURIComponent(usernameInput.value)}`
-    + `&channel_id=${encodeURIComponent(window.location.pathname.slice(1))}`
+const ws = new AppClientSocket(
+    'localhost:3000/ws?' +
+        `username=${encodeURIComponent(usernameInput.value)}` +
+        `&channel_id=${encodeURIComponent(window.location.pathname.slice(1))}`
 );
 const jsParser = new JsParser();
-const caretPosition = new CaretPosition(editor, jsParser)
+const caretPosition = new CaretPosition(editor, jsParser);
 
 const cssClasses = {
     [TokenType.Keyword]: 'keyword',
@@ -51,13 +49,15 @@ ws.onMessage((data) => {
         },
         displayMessage,
         (text: string) => {
-            caretPosition.save()
+            caretPosition.save();
             // replace <br> before they get stripped
-            text = text.replaceAll('<br>', '\n')
-            editor.innerHTML = String(transformEditorContent(text, jsParser, cssClasses))
-            caretPosition.restore()
-        },
-    )
+            text = text.replaceAll('<br>', '\n');
+            editor.innerHTML = String(
+                transformEditorContent(text, jsParser, cssClasses)
+            );
+            caretPosition.restore();
+        }
+    );
 });
 
 usernameInput.addEventListener('click', () => {
@@ -65,61 +65,77 @@ usernameInput.addEventListener('click', () => {
 });
 
 usernameInput.addEventListener('change', () => {
-    updateUsernameDebounced(ws, usernameInput) 
-})
+    updateUsernameDebounced(ws, usernameInput);
+});
 
 window.addEventListener('load', () => {
     editor.focus();
 });
 
 let previousText = '';
-const ignoredKeys = ['Enter', 'Backspace', 'Tab', 'Delete', ' ', 'ArrowLeft', 'ArrowUp',
-    'ArrowDown', 'ArrorRight', 'Control', 'Shift']
+const ignoredKeys = [
+    'Enter',
+    'Backspace',
+    'Tab',
+    'Delete',
+    ' ',
+    'ArrowLeft',
+    'ArrowUp',
+    'ArrowDown',
+    'ArrorRight',
+    'Control',
+    'Shift',
+];
 editor.addEventListener('keyup', (e) => {
-    if (ignoredKeys.includes(e.key)) return
-    if (editor.innerHTML === previousText) return
+    if (ignoredKeys.includes(e.key)) return;
+    if (editor.innerHTML === previousText) return;
 
     transformEditorContentDebounced((content) => {
-        previousText = content
+        previousText = content;
         handleEditorContent(content, ws);
-    })
+    });
 });
 
 const transformEditorContentDebounced = debounce(
     (onFinish: (newContent: string) => void) => {
-        caretPosition.save()
+        caretPosition.save();
         const newContent = transformEditorContent(
             editor.innerText,
             jsParser,
             cssClasses
         );
-        editor.innerHTML = newContent
-        caretPosition.restore()
-        onFinish(newContent)
-}, 500);
+        editor.innerHTML = newContent;
+        caretPosition.restore();
+        onFinish(newContent);
+    },
+    500
+);
 
 const updateUsernameDebounced = debounce(
     (ws: AppClientSocket, usernameInput: HTMLInputElement) => {
-        ws.send(
-            new ChangeNameMessage(usernameInput.value).toJSON()
-        );
-}, 500)
+        ws.send(new ChangeNameMessage(usernameInput.value).toJSON());
+    },
+    500
+);
 
 function handleEditorContent(content: string, socket: AppClientSocket) {
-    if (!content) return
-    socket.send(new CodeTextChangeMessage(content).toJSON())
+    if (!content) return;
+    socket.send(new CodeTextChangeMessage(content).toJSON());
 }
 
 function displayMessage(text: string) {
-    const dialog = 
-        document.getElementById('message-display') as HTMLDialogElement
-    const textEl = document.getElementById('message-display-text')
+    const dialog = document.getElementById(
+        'message-display'
+    ) as HTMLDialogElement;
+    const textEl = document.getElementById('message-display-text');
     if (!dialog || !textEl) {
-        throw new Error(`Missing el with id: 'message-display' or with id: 'message-display-text'.`)
+        throw new Error(
+            `Missing el with id: 'message-display' or with id: 'message-display-text'.`
+        );
     }
     if (!(dialog instanceof HTMLDialogElement)) {
-        throw new Error('Not a dialog.')
+        throw new Error('Not a dialog.');
     }
-    textEl.textContent = text
-    dialog.showModal()
+    textEl.textContent = text;
+    dialog.showModal();
 }

@@ -3,12 +3,12 @@ export const config = {
         ws: 500,
     },
     path: {
-        ws: '/ws'
+        ws: '/ws',
     },
     maxWsConnectionsPerIp: 5,
     // maxWsConnectionsPerIp: 2,
     maxWsMessageLength: 10000,
     maxSameMsgAllowed: 10,
-}
+};
 
-export type AppConfig = typeof config
+export type AppConfig = typeof config;
