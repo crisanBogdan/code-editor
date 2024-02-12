@@ -51,7 +51,6 @@ export class CaretPosition {
                 if (found) {
                     const range = document.createRange();
                     range.selectNode(this.container.children[i + j - 1]);
-                    console.log(range);
                     selection.removeAllRanges();
                     selection.addRange(range);
                     selection.collapseToEnd();
