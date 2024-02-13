@@ -13,7 +13,6 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "express-bouncer": "^0.2.0",
     "express-rate-limit": "^7.1.5",
     "express-ws": "^5.0.2",
     "toobusy-js": "^0.5.1",
