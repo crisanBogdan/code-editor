@@ -1,10 +1,6 @@
 import assert from 'node:assert';
 import { EventEmitter } from 'node:events';
-import {
-    Message,
-    MessageHandler,
-    MessageType,
-} from '../message.js';
+import { Message, MessageHandler, MessageType } from '../message.js';
 import { AppSocketConnection } from './socket-connection.js';
 import { AppConfig } from './config.js';
 import { ILogger } from './logger.js';
