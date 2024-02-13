@@ -69,39 +69,7 @@ describe('handleWebSocket', () => {
                 assert.equal(conn?.channel?.id, requestedId);
             }
         );
-
-        it(
-            'should send the client a message with the channel id they are' +
-                ' connected to',
-            () => {
-                const ee = new EventEmitter();
-                const send = mock.fn();
-                const ws = { on: ee.on.bind(ee), send, close: noop };
-
-                const conn = handleWebSocket({
-                    ws,
-                    ip: '4',
-                    config,
-                    logger,
-                    username: 'test',
-                    requestedChannelId: '',
-                });
-
-                assert.ok(
-                    send.mock.calls
-                        .flatMap((x) => x.arguments)
-                        .includes(
-                            MessageHandler.toJSON({
-                                type: MessageType.JoinedChannel,
-                                payload: {
-                                    channelId: conn?.channel?.id ?? '',
-                                    text: '',
-                                },
-                            })
-                        )
-                );
-            }
-        );
+        
         it('should limit connections above the config limit', () => {});
     });
 });

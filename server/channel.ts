@@ -37,7 +37,7 @@ export class AppChannel {
         if (existing_connection) {
             this.logger.error(
                 connection.ip +
-                    'tried to access a connection with an already existing username'
+                    'tried to access a channel using a username already in the channel'
             );
         }
 
@@ -50,9 +50,9 @@ export class AppChannel {
         this.connections.push(connection);
         connection.channel = this;
 
-        connection.on('message', (data) =>
+        connection.on('message', (data) => {
             this.handleMessage(connection, data)
-        );
+        });
         connection.on('close', () => {
             this.removeConnection(connection.id);
         });
@@ -70,7 +70,7 @@ export class AppChannel {
         const connection = this.connections.find((c) => c.id === id);
 
         if (!connection) {
-            console.warn('No connection with id ' + id + ' was found.');
+            this.logger.log(`Channel with id: ${this.id} - no connection with id: ${id} was found.`);
             return;
         }
 
