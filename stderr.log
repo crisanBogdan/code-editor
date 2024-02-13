@@ -6,3 +6,538 @@
 2024-02-11T21:00:51.184Z ::1 websocket connection limit reached.
 2024-02-11T21:02:32.147Z ::1 websocket connection limit reached.
 2024-02-11T21:02:57.983Z ::1 websocket connection limit reached.
+2024-02-13T04:48:21.966Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T04:48:21.967Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T04:48:21.967Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T04:48:21.967Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T04:48:21.967Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T04:50:53.887Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T04:50:53.887Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T04:50:53.887Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T04:50:53.887Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T04:50:53.887Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.888Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:50:53.889Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.945Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T04:52:13.945Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T04:52:13.945Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T04:52:13.945Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T04:52:13.945Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T04:52:13.946Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.946Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.946Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.946Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.946Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.946Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.946Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.947Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.947Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.947Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.947Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.947Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.947Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.947Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.947Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.947Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.947Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.947Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.947Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.947Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.947Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.947Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.947Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.947Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.948Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.949Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.949Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.949Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.949Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.949Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.949Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.949Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.949Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.949Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.949Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.949Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.949Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.949Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.949Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.949Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.949Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:52:13.949Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.963Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T04:57:49.963Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T04:57:49.963Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T04:57:49.963Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T04:57:49.963Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T04:57:49.964Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.964Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.964Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.964Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.964Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.965Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.965Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.965Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.965Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.965Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.965Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.965Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.965Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.965Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.965Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.966Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.966Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.966Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.966Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.966Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.966Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.966Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.966Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.966Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.966Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.966Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.966Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.966Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.966Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.966Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.966Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.966Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.967Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.967Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.967Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.967Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.967Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.967Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.967Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.967Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.967Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.967Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.967Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.967Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.967Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.967Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.968Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.968Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.968Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.968Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.968Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.968Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.968Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.968Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.968Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.968Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.968Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.968Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.968Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.968Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.968Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.968Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.968Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.968Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.968Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T04:57:49.969Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.634Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:00:06.634Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:00:06.634Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:00:06.634Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:00:06.634Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.635Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:00:06.636Z 127.0.0.1 sent the same message 10 times in a row: x
+2024-02-13T05:00:06.636Z 127.0.0.1 sent the same message 10 times in a row: x
+2024-02-13T05:00:06.636Z 127.0.0.1 sent the same message 10 times in a row: x
+2024-02-13T05:00:06.636Z 127.0.0.1 sent the same message 10 times in a row: x
+2024-02-13T05:00:06.636Z 127.0.0.1 sent the same message 10 times in a row: x
+2024-02-13T05:00:06.636Z 127.0.0.1 sent the same message 10 times in a row: x
+2024-02-13T05:01:16.707Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:01:16.707Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:01:16.707Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:01:16.707Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:01:16.707Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:01:16.707Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.708Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.708Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.708Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.708Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.708Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.708Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.708Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.708Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.708Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.708Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.708Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.708Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.709Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:01:16.710Z 127.0.0.1 sent the same message 10 times in a row: x
+2024-02-13T05:01:16.710Z 127.0.0.1 sent the same message 10 times in a row: x
+2024-02-13T05:01:16.710Z 127.0.0.1 sent the same message 10 times in a row: x
+2024-02-13T05:01:16.710Z 127.0.0.1 sent the same message 10 times in a row: x
+2024-02-13T05:01:16.710Z 127.0.0.1 sent the same message 10 times in a row: x
+2024-02-13T05:01:16.710Z 127.0.0.1 sent the same message 10 times in a row: x
+2024-02-13T05:05:44.718Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:05:44.718Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:05:44.718Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:05:44.718Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:05:44.718Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:05:44.719Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.719Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.719Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.719Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.719Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.719Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.720Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.720Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.720Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.720Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.720Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.720Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.720Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.720Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.720Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.720Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.720Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.720Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.720Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.720Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.720Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.720Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.721Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.721Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.721Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.721Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.721Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.721Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.721Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.721Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.721Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.721Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.721Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.721Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.721Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.721Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.721Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.721Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.721Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.721Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.721Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.721Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.721Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.721Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.721Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.722Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.722Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.722Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.722Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.722Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.722Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.722Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.722Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.722Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.722Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.722Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.722Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.722Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.722Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.722Z 127.0.0.1 has sent message that wasn't JSON.
+2024-02-13T05:05:44.722Z 127.0.0.1 sent the same message 10 times in a row: { "data": "x" }
+2024-02-13T05:05:44.722Z 127.0.0.1 sent the same message 10 times in a row: { "data": "x" }
+2024-02-13T05:05:44.722Z 127.0.0.1 sent the same message 10 times in a row: { "data": "x" }
+2024-02-13T05:05:44.722Z 127.0.0.1 sent the same message 10 times in a row: { "data": "x" }
+2024-02-13T05:05:44.722Z 127.0.0.1 sent the same message 10 times in a row: { "data": "x" }
+2024-02-13T05:05:44.722Z 127.0.0.1 sent the same message 10 times in a row: { "data": "x" }
+2024-02-13T05:11:57.381Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:11:57.382Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:11:57.382Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:11:57.382Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:11:57.382Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:11:57.382Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.382Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.382Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.383Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.383Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.383Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.383Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.383Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.383Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.383Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.383Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.383Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.383Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.383Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.383Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.383Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.383Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.383Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.383Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.384Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.385Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.385Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.385Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.385Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.385Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.385Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.385Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.385Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.385Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.385Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.385Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.385Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.385Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.385Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.385Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.385Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.385Z 127.0.0.1 has sent message that had the error Error: Invalid type: undefined or payload: undefined.
+2024-02-13T05:11:57.385Z 127.0.0.1 sent the same message 10 times in a row: { "data": "x" }
+2024-02-13T05:11:57.385Z 127.0.0.1 sent the same message 10 times in a row: { "data": "x" }
+2024-02-13T05:11:57.385Z 127.0.0.1 sent the same message 10 times in a row: { "data": "x" }
+2024-02-13T05:11:57.385Z 127.0.0.1 sent the same message 10 times in a row: { "data": "x" }
+2024-02-13T05:11:57.385Z 127.0.0.1 sent the same message 10 times in a row: { "data": "x" }
+2024-02-13T05:11:57.385Z 127.0.0.1 sent the same message 10 times in a row: { "data": "x" }
+2024-02-13T05:12:49.665Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:12:49.665Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:12:49.665Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:12:49.665Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:12:49.665Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T05:12:49.668Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
+2024-02-13T05:12:49.668Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
+2024-02-13T05:12:49.668Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
+2024-02-13T05:12:49.668Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
+2024-02-13T05:12:49.668Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
+2024-02-13T05:12:49.668Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
+2024-02-13T06:13:07.421Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T06:13:07.421Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T06:13:07.422Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T06:13:07.422Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T06:13:07.422Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T06:13:07.432Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
+2024-02-13T06:13:07.433Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
+2024-02-13T06:13:07.433Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
+2024-02-13T06:13:07.433Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
+2024-02-13T06:13:07.433Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
+2024-02-13T06:13:07.433Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
+2024-02-13T06:18:25.220Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T06:18:25.221Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T06:18:25.221Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T06:18:25.221Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T06:18:25.221Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T06:18:25.222Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
+2024-02-13T06:18:25.222Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
+2024-02-13T06:18:25.222Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
+2024-02-13T06:18:25.222Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
+2024-02-13T06:18:25.222Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
+2024-02-13T06:18:25.222Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}

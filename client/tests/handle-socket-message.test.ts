@@ -7,7 +7,9 @@ import {
     UserChangedNameMessage,
     CodeTextChangeMessage,
     UserDisconnectedMessage,
-    UserJoinedMessage
+    UserJoinedMessage,
+    MessageHandler,
+    MessageType
 } from '../../message.js';
 
 describe('handleWsMessage', () => {
@@ -17,7 +19,10 @@ describe('handleWsMessage', () => {
             const updateUrl = mock.fn()
             const updateEditor = mock.fn()
             handleSocketMessage(
-                new JoinedMessage({ channelId: 'test', text: '' }).toJSON(),
+                MessageHandler.toJSON({
+                    type: MessageType.JoinedChannel,
+                    payload: { channelId: 'test', text: '' }
+                }),
                 updateUrl,
                 noop,
                 updateEditor,
@@ -30,7 +35,10 @@ describe('handleWsMessage', () => {
         () => {
             const displayMessage = mock.fn()
             handleSocketMessage(
-                new UserJoinedMessage('test').toJSON(),
+                MessageHandler.toJSON({
+                    type: MessageType.UserJoined,
+                    payload: 'test'
+                }),
                 noop,
                 displayMessage,
                 noop,
@@ -42,7 +50,10 @@ describe('handleWsMessage', () => {
         () => {
             const displayMessage = mock.fn()
             handleSocketMessage(
-                new UserDisconnectedMessage('test').toJSON(),
+                MessageHandler.toJSON({
+                    type: MessageType.UserDisconnected,
+                    payload: 'test',
+                }),
                 noop,
                 displayMessage,
                 noop,
@@ -54,8 +65,10 @@ describe('handleWsMessage', () => {
         () => {
             const displayMessage = mock.fn()
             handleSocketMessage(
-                new UserChangedNameMessage(
-                    {from: 'a', to: 'b'}).toJSON(),
+                MessageHandler.toJSON({
+                    type: MessageType.UserChangedName,
+                    payload: {from: 'a', to: 'b'},
+                }),
                 noop,
                 displayMessage,
                 noop,
@@ -67,7 +80,10 @@ describe('handleWsMessage', () => {
         () => {
             const updateEditorContent = mock.fn()
             handleSocketMessage(
-                new CodeTextChangeMessage('test').toJSON(),
+                MessageHandler.toJSON({
+                    type: MessageType.CodeTextChange,
+                    payload: 'test'
+                }),
                 noop,
                 noop,
                 updateEditorContent,

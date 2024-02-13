@@ -1,5 +1,5 @@
 import assert from 'node:assert';
-import { Message } from '../message.js';
+import { Message, MessageHandler } from '../message.js';
 import { WebSocket } from 'ws';
 import { AppChannel } from './channel.js';
 
@@ -33,8 +33,8 @@ export class AppSocketConnection {
         this.wsInterface.on(ev, cb);
     }
 
-    send(msg: Message<any>) {
-        this.wsInterface.send(msg.toJSON());
+    send(msg: Message) {
+        this.wsInterface.send(MessageHandler.toJSON(msg));
     }
 
     close(msg?: string) {

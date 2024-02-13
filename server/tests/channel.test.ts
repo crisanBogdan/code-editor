@@ -9,7 +9,8 @@ import {
     ChangeNameMessage,
     CodeTextChangeMessage,
     JoinedMessage,
-    Message,
+    MessageHandler,
+    MessageType,
     UserChangedNameMessage,
     UserDisconnectedMessage,
     UserJoinedMessage
@@ -40,11 +41,13 @@ describe('AppChannel', () => {
         channel.addConnection(connection1)
         channel.addConnection(connection2)
 
-        const expectedMessage = new UserJoinedMessage(connection2.username)
+        const expectedMessage = MessageHandler.toJSON({
+            type: MessageType.UserJoined,
+            payload: connection2.username,
+        })
         assert.ok(ws.send.mock.calls
             .flatMap(x => x.arguments)
-            .map(Message.fromJSON)
-            .find(x => x.equals(expectedMessage)))
+            .find(x => x === expectedMessage))
     })
 
     it('should send the last message to the newly joined user', () => {
@@ -62,15 +65,20 @@ describe('AppChannel', () => {
         channel.addConnection(connection1)
         
         const text = 'test msg'
-        emitter.emit('message', new CodeTextChangeMessage(text).toJSON())
+        emitter.emit('message', MessageHandler.toJSON({
+            type: MessageType.CodeTextChange,
+            payload: text,
+        }))
 
         channel.addConnection(connection2)
 
-        const expected = new JoinedMessage({ channelId, text })
+        const expected = MessageHandler.toJSON({
+            type: MessageType.JoinedChannel,
+            payload: { channelId, text },
+        })
         assert.ok(send.mock.calls
             .flatMap(x => x.arguments)
-            .map(Message.fromJSON)
-            .find(x => x.equals(expected)))
+            .find(x => x === expected))
     })
 
     it('should send the message to all other connections when someone writes'
@@ -92,15 +100,15 @@ describe('AppChannel', () => {
         channel.addConnection(connection2)
         channel.addConnection(connection3)
         
-        emitter.emit('message', new CodeTextChangeMessage(
-            'test msg',
-        ).toJSON())
-        const expected = new CodeTextChangeMessage('test msg')
+        const expected = MessageHandler.toJSON({
+            type: MessageType.CodeTextChange,
+            payload: 'test msg',
+        })
+        emitter.emit('message', expected)
 
         assert.ok(send.mock.calls
             .flatMap(x => x.arguments)
-            .map(Message.fromJSON)
-            .find(x => x.equals(expected)))
+            .find(x => x === expected))
     })
 
     it('should send a message to all connections when someone changes'
@@ -118,16 +126,18 @@ describe('AppChannel', () => {
         channel.addConnection(connection1)
         channel.addConnection(connection2)
 
-        emitter.emit('message', new ChangeNameMessage('testX').toJSON())
-        const expected = new UserChangedNameMessage(
-            { from: 'test2', to: 'testX' }
-        )
+        emitter.emit('message', MessageHandler.toJSON({
+            type: MessageType.ChangeName,
+            payload: 'testX'
+        }))
+        const expected = MessageHandler.toJSON({
+            type: MessageType.UserChangedName,
+            payload: { from: 'test2', to: 'testX' }
+        })
 
-        console.dir(send.mock.calls.flatMap(x => x.arguments))
         assert.ok(send.mock.calls
             .flatMap(x => x.arguments)
-            .map(Message.fromJSON)
-            .find(x => x.equals(expected)))
+            .find(x => x === expected))
     })
 
 
@@ -148,14 +158,14 @@ describe('AppChannel', () => {
 
             emitter.emit('close')
 
-            const expected = new UserDisconnectedMessage(
-                'test2'
-            )
+            const expected = MessageHandler.toJSON({
+                type: MessageType.UserDisconnected,
+                payload: 'test2'
+            })
 
             assert.ok(send.mock.calls
                 .flatMap(x => x.arguments)
-                .map(Message.fromJSON)
-                .find(x => x.equals(expected)))
+                .find(x => x === expected))
         }
     )
 
@@ -175,9 +185,27 @@ describe('AppChannel', () => {
     )
     
     it('should close a connection if the message length is above limit', () => {
-
+        const channel = new AppChannel('test-channel', config, logger)
+        const close = mock.fn()
+        const connection = new AppSocketConnection('1', 'test-connection', ip, 
+            { on: emitter.on.bind(emitter), send: noop, close })
+        channel.addConnection(connection)
+        emitter.emit('message', new Array(config.maxWsMessageLength + 1).fill('x').join(''))
+        assert.equal(close.mock.calls.length, 1)
     })
 
     it('should close a connection if the same message is sent more than the allowed limit', () => {
+        const channel = new AppChannel('test-channel', config, logger)
+        const close = mock.fn()
+        const connection = new AppSocketConnection('1', 'test-connection', ip, 
+            { on: emitter.on.bind(emitter), send: noop, close })
+        channel.addConnection(connection)
+        for (let i = 1; i <= config.maxSameMsgAllowed + 1; i++) {
+            emitter.emit('message', MessageHandler.toJSON({
+                type: MessageType.CodeTextChange,
+                payload: 'test',
+            }))
+        }
+        assert.equal(close.mock.calls.length, 1)
     })
 })

@@ -1,9 +1,6 @@
 import {
-    Message,
+    MessageHandler,
     MessageType,
-    UserChangedNameMessage,
-    CodeTextChangeMessage,
-    JoinedMessage,
 } from '../message.js';
 
 export function handleSocketMessage(
@@ -12,29 +9,28 @@ export function handleSocketMessage(
     displayMessage: (path: string) => void,
     updateEditorContent: (text: string) => void
 ) {
-    const message = Message.fromJSON(data);
-    switch (message.type) {
+    const { type, payload } = MessageHandler.fromJSON(data);
+    switch (type) {
         case MessageType.JoinedChannel: {
-            const { channelId, text } = (message as JoinedMessage).payload;
+            const { channelId, text } = payload;
             updateUrlPath(String(channelId));
             updateEditorContent(text);
             break;
         }
         case MessageType.UserDisconnected: {
-            displayMessage(`${String(message.payload)} left!`);
+            displayMessage(`${payload} left!`);
             break;
         }
         case MessageType.UserJoined: {
-            displayMessage(`${String(message.payload)} joined!`);
+            displayMessage(`${payload} joined!`);
             break;
         }
         case MessageType.UserChangedName: {
-            const { from, to } = (message as UserChangedNameMessage).payload;
+            const { from, to } = payload;
             displayMessage(`${from} changed their name to ${to}.`);
             break;
         }
         case MessageType.CodeTextChange: {
-            const { payload } = message as CodeTextChangeMessage;
             updateEditorContent(payload);
             break;
         }

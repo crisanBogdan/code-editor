@@ -64,10 +64,10 @@ export function handleWebSocket({
     }
 
     ws.on('close', () => {
-        wsConnectionsByIp.set(ip, wsConnectionsByIp.get(ip) ?? 0 - 1);
+        wsConnectionsByIp.set(ip, (wsConnectionsByIp.get(ip) ?? 0) - 1);
     });
     ws.on('error', (e) => {
-        logger.error(`${ip} general ws error: ${e}`);
+        logger.error(`${ip} - general web socket error: ${e}`);
     });
 
     return connection;

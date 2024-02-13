@@ -5,7 +5,7 @@ import { TokenType } from './token.js';
 export function transformEditorContent(
     text: string,
     parser: IParser,
-    cssClasses: Record<TokenType, string>
+    cssClasses: Record<TokenType, string>,
 ): string {
     text = stripHtmlTags(text);
     const tokens = parser.getTokens(text);

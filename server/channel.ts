@@ -5,6 +5,7 @@ import {
     CodeTextChangeMessage,
     JoinedMessage,
     Message,
+    MessageHandler,
     MessageType,
     UserChangedNameMessage,
     UserDisconnectedMessage,
@@ -13,7 +14,6 @@ import {
 import { AppSocketConnection } from './socket-connection.js';
 import { AppConfig } from './config.js';
 import { ILogger } from './logger.js';
-import { config } from 'node:process';
 
 export enum AppChannelEvents {
     Empty = 'empty',
@@ -53,7 +53,7 @@ export class AppChannel {
         }
 
         this.connections.forEach((c) =>
-            c.send(new UserJoinedMessage(connection.username))
+            c.send({ type: MessageType.UserJoined, payload: connection.username })
         );
         this.connections.push(connection);
         connection.channel = this;
@@ -65,9 +65,13 @@ export class AppChannel {
             this.removeConnection(connection.id);
         });
 
-        connection.send(
-            new JoinedMessage({ channelId: this.id, text: this.lastTextChange })
-        );
+        connection.send({
+            type: MessageType.JoinedChannel, 
+            payload: {
+                channelId: this.id,
+                text: this.lastTextChange 
+            }
+        });
     }
 
     removeConnection(id: string) {
@@ -80,7 +84,10 @@ export class AppChannel {
 
         this.connections = this.connections.filter((c) => c.id !== id);
         this.connections.forEach((c) =>
-            c.send(new UserDisconnectedMessage(connection.username))
+            c.send({ 
+                type: MessageType.UserDisconnected,
+                payload: connection.username
+            })
         );
 
         if (this.connections.length === 0) {
@@ -103,10 +110,12 @@ export class AppChannel {
             return;
         }
         if (data === this.previousMsg.get(ip)) {
-            this.sameMsgCount.set(ip, this.sameMsgCount.get(ip) ?? 0 + 1);
+            this.sameMsgCount.set(ip, (this.sameMsgCount.get(ip) ?? 0) + 1);
         } else {
             this.sameMsgCount.set(ip, 0);
         }
+        this.previousMsg.set(ip, data)
+
         if (this.sameMsgCount.get(ip) === this.config.maxSameMsgAllowed) {
             this.logger.error(
                 `${ip} sent the same message ${this.config.maxSameMsgAllowed} times in a row: ${data.slice(0, this.config.maxWsMessageLength)}`
@@ -116,12 +125,11 @@ export class AppChannel {
             return;
         }
 
-        let message: Message<unknown>;
+        let message: Message
         try {
-            message = Message.fromJSON(data);
+            message = MessageHandler.fromJSON(data);
         } catch (e) {
-            // close if user tried sending something that wasn't json
-            this.logger.error(`${ip} has sent message that wasn't JSON.`);
+            this.logger.error(`${ip} has sent message that had the error ${e}.`);
             connection.close();
             return;
         }
@@ -129,26 +137,25 @@ export class AppChannel {
         const otherConnections = this.connections.filter(
             (c) => c.id !== connection.id
         );
-        const { type } = message;
+        const { type, payload } = message;
         switch (type) {
             case MessageType.ChangeName: {
-                const payload = (message as ChangeNameMessage).payload;
                 otherConnections.forEach((c) => {
-                    c.send(
-                        new UserChangedNameMessage({
+                    c.send({
+                        type: MessageType.UserChangedName,
+                        payload: {
                             from: connection.username,
                             to: payload,
-                        })
-                    );
+                        }
+                    })
                 });
                 connection.username = payload;
                 break;
             }
             case MessageType.CodeTextChange: {
-                const payload = (message as CodeTextChangeMessage).payload;
                 this.lastTextChange = payload;
                 otherConnections.forEach((c) =>
-                    c.send(new CodeTextChangeMessage(payload))
+                    c.send({ type: MessageType.CodeTextChange, payload })
                 );
                 break;
             }

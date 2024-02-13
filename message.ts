@@ -10,64 +10,57 @@ export enum MessageType {
     JoinedChannel     = '7',
 }
 
-export class Message<T> {
-    constructor(
-        public type: MessageType, 
-        public payload: T
-    ) { }
+export type ChangeNameMessage = {
+    type: MessageType.ChangeName;
+    payload: string;
+}
 
-    toJSON(): string {
-        return JSON.stringify({ type: this.type, payload: this.payload })
+export type CodeTextChangeMessage = {
+    type: MessageType.CodeTextChange;
+    payload: string;
+}
+
+export type UserJoinedMessage = {
+    type: MessageType.UserJoined;
+    payload: string;
+}
+
+export type JoinedMessage = {
+    type: MessageType.JoinedChannel;
+    payload: { channelId: string; text: string; };
+}
+
+export type UserDisconnectedMessage = {
+    type: MessageType.UserDisconnected;
+    payload: string;
+}
+
+export type UserChangedNameMessage = {
+    type: MessageType.UserChangedName;
+    payload: { from: string; to: string; } 
+}
+
+export type Message = ChangeNameMessage | CodeTextChangeMessage | UserJoinedMessage 
+    | JoinedMessage | UserDisconnectedMessage | UserChangedNameMessage 
+
+export class MessageHandler {
+    static toJSON(message: Message): string {
+        return JSON.stringify({ type: message.type, payload: message.payload })
     }
 
-    static fromJSON(data: string): Message<unknown> {
+    static fromJSON(data: string): Message {
         const { type, payload } = JSON.parse(data)
         if (!type || !payload) {
             throw Error(`Invalid type: ${type} or payload: ${payload}`)
         }
-        return new Message(type, payload)
+        return { type, payload }
     }
 
-    equals(other: Message<unknown>): boolean {
-        if (this.type !== other.type) {
+    static equals(a: Message, b: Message): boolean {
+        if (a.type !== b.type) {
             return false
         }
-        return deepEquals(this.payload, other.payload)
+        return deepEquals(a.payload, b.payload)
     }
 }
 
-export class ChangeNameMessage extends Message<string> {
-    constructor(payload: string) {
-        super(MessageType.ChangeName, payload)
-    }
-}
-
-export class CodeTextChangeMessage extends Message<string> {
-    constructor(payload: string) {
-        super(MessageType.CodeTextChange, payload)
-    }
-}
-
-export class UserJoinedMessage extends Message<string> {
-    constructor(payload: string) {
-        super(MessageType.UserJoined, payload)
-    }
-}
-export class JoinedMessage extends Message<{ channelId: string; text: string; }> {
-    constructor(payload: { channelId: string; text: string; }) {
-        super(MessageType.JoinedChannel, payload)
-    }
-}
-export class UserDisconnectedMessage extends Message<string> {
-    constructor(payload: string) {
-        super(MessageType.UserDisconnected, payload)
-    }
-}
-
-export class UserChangedNameMessage extends Message<{
-    from: string; to: string;}> 
-{
-    constructor(payload: { from: string; to: string;}) {
-        super(MessageType.UserChangedName, payload)
-    }
-}

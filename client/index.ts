@@ -2,7 +2,7 @@ import { transformEditorContent } from './transform-editor-content.js';
 import { JsParser } from './js-parser.js';
 import { TokenType } from './token.js';
 import { AppClientSocket } from './client-socket.js';
-import { CodeTextChangeMessage, ChangeNameMessage } from '../message.js';
+import { CodeTextChangeMessage, ChangeNameMessage, MessageHandler, MessageType } from '../message.js';
 import { debounce } from '../utils.js';
 import { handleSocketMessage } from './handle-socket-message.js';
 import { CaretPosition } from './caret-position.js';
@@ -50,8 +50,6 @@ ws.onMessage((data) => {
         displayMessage,
         (text: string) => {
             caretPosition.save();
-            // replace <br> before they get stripped
-            text = text.replaceAll('<br>', '\n');
             editor.innerHTML = String(
                 transformEditorContent(text, jsParser, cssClasses)
             );
@@ -73,21 +71,9 @@ window.addEventListener('load', () => {
 });
 
 let previousText = '';
-const ignoredKeys = [
-    'Enter',
-    'Backspace',
-    'Tab',
-    'Delete',
-    ' ',
-    'ArrowLeft',
-    'ArrowUp',
-    'ArrowDown',
-    'ArrorRight',
-    'Control',
-    'Shift',
-];
 editor.addEventListener('keyup', (e) => {
-    if (ignoredKeys.includes(e.key)) return;
+    // if Space, Tab etc. was clicked
+    if (e.key.length > 1 || e.key === ' ') return;
     if (editor.innerHTML === previousText) return;
 
     transformEditorContentDebounced((content) => {
@@ -113,14 +99,20 @@ const transformEditorContentDebounced = debounce(
 
 const updateUsernameDebounced = debounce(
     (ws: AppClientSocket, usernameInput: HTMLInputElement) => {
-        ws.send(new ChangeNameMessage(usernameInput.value).toJSON());
+        ws.send(MessageHandler.toJSON({
+            type: MessageType.ChangeName,
+            payload: usernameInput.value
+        }))
     },
     500
 );
 
 function handleEditorContent(content: string, socket: AppClientSocket) {
     if (!content) return;
-    socket.send(new CodeTextChangeMessage(content).toJSON());
+    socket.send(MessageHandler.toJSON({
+        type: MessageType.CodeTextChange,
+        payload: content
+    }))
 }
 
 function displayMessage(text: string) {

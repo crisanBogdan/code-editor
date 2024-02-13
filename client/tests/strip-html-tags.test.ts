@@ -31,4 +31,12 @@ describe('stripHtmlTags', () => {
             'Test paragraph',
         )
     })
+    
+    it('should replace <br> tags with "\\n"', () => {
+        assert.strictEqual(
+            stripHtmlTags('<br>'),
+            '\n'
+        )
+
+    })
 })

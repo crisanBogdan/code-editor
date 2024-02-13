@@ -1,16 +1,12 @@
 import assert from 'node:assert';
 import { describe, it, mock } from 'node:test';
 import EventEmitter from 'node:events';
-import { v4 as uuid, validate as validate_uuid } from 'uuid';
+import { v4 as uuid } from 'uuid';
 import { handleWebSocket } from '../handle-websocket.js';
-import { AppChannel } from '../channel.js';
-import {
-    JoinedMessage,
-    Message,
-} from '../../message.js';
 import { noop } from '../../utils.js';
 import { config } from '../config.js';
 import { logger } from '../logger.js';
+import { MessageHandler, MessageType } from '../../message.js';
 
 describe('handleWebSocket', () => {
     describe('on a client join message', () => {
@@ -59,8 +55,8 @@ describe('handleWebSocket', () => {
         );
 
         it(
-            'should send the client a message with the channel id they are' +
-                ' connected to',
+            'should send the client a message with the channel id they are' 
+            + ' connected to',
             () => {
                 const ee = new EventEmitter();
                 const send = mock.fn();
@@ -71,10 +67,11 @@ describe('handleWebSocket', () => {
                 });
 
                 assert.ok(send.mock.calls.flatMap(x => x.arguments)
-                .includes(new JoinedMessage({ channelId: conn?.channel?.id ?? '', text: '' })
-                .toJSON()))
-            }
-        );
+                .includes(MessageHandler.toJSON({
+                    type: MessageType.JoinedChannel,
+                    payload: { channelId: conn?.channel?.id ?? '', text: '' }
+                })))
+        });
         it('should limit connections above the config limit', () => {
 
         })
