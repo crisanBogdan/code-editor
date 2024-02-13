@@ -541,3 +541,14 @@
 2024-02-13T06:18:25.222Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
 2024-02-13T06:18:25.222Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
 2024-02-13T06:18:25.222Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
+2024-02-13T07:31:27.213Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T07:31:27.214Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T07:31:27.214Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T07:31:27.214Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T07:31:27.214Z 127.0.0.1 sent message with longer than allowed length: 10001
+2024-02-13T07:31:27.216Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
+2024-02-13T07:31:27.216Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
+2024-02-13T07:31:27.216Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
+2024-02-13T07:31:27.216Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
+2024-02-13T07:31:27.216Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}
+2024-02-13T07:31:27.216Z 127.0.0.1 sent the same message 10 times in a row: {"type":"2","payload":"test"}

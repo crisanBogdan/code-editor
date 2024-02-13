@@ -135,11 +135,15 @@ export class JsParser implements IParser {
                 case '\t': {
                     break;
                 }
+                case '\'':
+                case '"':
+                case '`': {
+                    this.start = this.current;
+                    this.parseString();
+                }
                 default: {
                     this.start = this.current;
-                    if (/['"`]/.test(this.text[this.current]))
-                        this.parseString();
-                    else if (/\d/.test(this.text[this.current]))
+                    if (/\d/.test(this.text[this.current]))
                         this.parseNumber();
                     else if (/[\w_]/.test(this.text[this.current]))
                         this.parseWord();
@@ -184,11 +188,11 @@ export class JsParser implements IParser {
 
     private parseComment() {
         this.advance();
-        if (this.peek() == '/') {
+        if (this.peek() == '/') { // '//' comment
             while (!this.atEnd() && !/\n/.test(this.peekNext())) {
                 this.advance();
             }
-        } else {
+        } else { // /* comment
             while (!this.atEnd() && this.peek() !== '/') {
                 this.advance();
             }
