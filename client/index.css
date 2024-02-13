@@ -26,7 +26,6 @@ code {
     bottom: 0;
     background-color: #fefefe;
     padding: 4px;
-    /* width: 100%; */
 }
 
 #message-display[open] {

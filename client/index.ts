@@ -77,7 +77,7 @@ window.addEventListener('load', () => {
 
 let previousText = '';
 editor.addEventListener('keyup', (e) => {
-    // if Space, Tab etc. was clicked
+    // if Space, Tab etc. was pressed
     if (e.key.length > 1 || e.key === ' ') return;
     if (editor.innerHTML === previousText) return;
 
