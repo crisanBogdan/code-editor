@@ -24,8 +24,8 @@
 - [x] fix handlewebsocket tests
 - [ ] add tests for limiting number of ws connections
 - [x] add tests for validating ws messages
-- [ ] change from using throttle to rate limiting ws messages
-- [x] fix message class types so that ts can infer the payload from the type
+- [ ] rate limit ws messages
+- [x] fix message types so that ts can infer the payload from the type
 - [ ] broadcast caret position
 
 ## Front-end

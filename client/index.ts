@@ -2,7 +2,12 @@ import { transformEditorContent } from './transform-editor-content.js';
 import { JsParser } from './js-parser.js';
 import { TokenType } from './token.js';
 import { AppClientSocket } from './client-socket.js';
-import { CodeTextChangeMessage, ChangeNameMessage, MessageHandler, MessageType } from '../message.js';
+import {
+    CodeTextChangeMessage,
+    ChangeNameMessage,
+    MessageHandler,
+    MessageType,
+} from '../message.js';
 import { debounce } from '../utils.js';
 import { handleSocketMessage } from './handle-socket-message.js';
 import { CaretPosition } from './caret-position.js';
@@ -99,20 +104,24 @@ const transformEditorContentDebounced = debounce(
 
 const updateUsernameDebounced = debounce(
     (ws: AppClientSocket, usernameInput: HTMLInputElement) => {
-        ws.send(MessageHandler.toJSON({
-            type: MessageType.ChangeName,
-            payload: usernameInput.value
-        }))
+        ws.send(
+            MessageHandler.toJSON({
+                type: MessageType.ChangeName,
+                payload: usernameInput.value,
+            })
+        );
     },
     500
 );
 
 function handleEditorContent(content: string, socket: AppClientSocket) {
     if (!content) return;
-    socket.send(MessageHandler.toJSON({
-        type: MessageType.CodeTextChange,
-        payload: content
-    }))
+    socket.send(
+        MessageHandler.toJSON({
+            type: MessageType.CodeTextChange,
+            payload: content,
+        })
+    );
 }
 
 function displayMessage(text: string) {

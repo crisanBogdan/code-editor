@@ -1,15 +1,9 @@
 import assert from 'node:assert';
 import { EventEmitter } from 'node:events';
 import {
-    ChangeNameMessage,
-    CodeTextChangeMessage,
-    JoinedMessage,
     Message,
     MessageHandler,
     MessageType,
-    UserChangedNameMessage,
-    UserDisconnectedMessage,
-    UserJoinedMessage,
 } from '../message.js';
 import { AppSocketConnection } from './socket-connection.js';
 import { AppConfig } from './config.js';
@@ -22,7 +16,6 @@ export enum AppChannelEvents {
 export class AppChannel {
     private connections: AppSocketConnection[] = [];
     private eventEmitter = new EventEmitter();
-    // map<ip, string>
     private previousMsg: Map<string, string> = new Map();
     private sameMsgCount: Map<string, number> = new Map();
 
@@ -53,7 +46,10 @@ export class AppChannel {
         }
 
         this.connections.forEach((c) =>
-            c.send({ type: MessageType.UserJoined, payload: connection.username })
+            c.send({
+                type: MessageType.UserJoined,
+                payload: connection.username,
+            })
         );
         this.connections.push(connection);
         connection.channel = this;
@@ -66,11 +62,11 @@ export class AppChannel {
         });
 
         connection.send({
-            type: MessageType.JoinedChannel, 
+            type: MessageType.JoinedChannel,
             payload: {
                 channelId: this.id,
-                text: this.lastTextChange 
-            }
+                text: this.lastTextChange,
+            },
         });
     }
 
@@ -84,9 +80,9 @@ export class AppChannel {
 
         this.connections = this.connections.filter((c) => c.id !== id);
         this.connections.forEach((c) =>
-            c.send({ 
+            c.send({
                 type: MessageType.UserDisconnected,
-                payload: connection.username
+                payload: connection.username,
             })
         );
 
@@ -114,7 +110,7 @@ export class AppChannel {
         } else {
             this.sameMsgCount.set(ip, 0);
         }
-        this.previousMsg.set(ip, data)
+        this.previousMsg.set(ip, data);
 
         if (this.sameMsgCount.get(ip) === this.config.maxSameMsgAllowed) {
             this.logger.error(
@@ -125,11 +121,13 @@ export class AppChannel {
             return;
         }
 
-        let message: Message
+        let message: Message;
         try {
             message = MessageHandler.fromJSON(data);
         } catch (e) {
-            this.logger.error(`${ip} has sent message that had the error ${e}.`);
+            this.logger.error(
+                `${ip} has sent message that had the error ${e}.`
+            );
             connection.close();
             return;
         }
@@ -146,8 +144,8 @@ export class AppChannel {
                         payload: {
                             from: connection.username,
                             to: payload,
-                        }
-                    })
+                        },
+                    });
                 });
                 connection.username = payload;
                 break;

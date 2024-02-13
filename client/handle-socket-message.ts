@@ -1,7 +1,4 @@
-import {
-    MessageHandler,
-    MessageType,
-} from '../message.js';
+import { MessageHandler, MessageType } from '../message.js';
 
 export function handleSocketMessage(
     data: string,
