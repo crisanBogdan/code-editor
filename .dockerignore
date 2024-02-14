@@ -1,0 +1,12 @@
+**/.dockerignore
+**/.env
+**/.git
+**/.gitignore
+**/.vscode
+**/Dockerfile*
+**/node_modules
+**/dist
+**/stderr.log
+**/stdout.log
+LICENSE
+README.md

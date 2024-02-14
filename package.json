@@ -25,6 +25,7 @@
     "@types/express-ws": "^3.0.4",
     "@types/node": "^20.11.15",
     "@types/toobusy-js": "^0.5.4",
-    "@types/uuid": "^9.0.8"
+    "@types/uuid": "^9.0.8",
+    "typescript": "^5.3.3"
   }
 }

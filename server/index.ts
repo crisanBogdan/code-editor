@@ -9,6 +9,7 @@ import cors from 'cors';
 import { config } from './config.js';
 import { handleWebSocket } from './handle-websocket.js';
 import { logger } from './logger.js';
+import { exit } from 'process';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -44,4 +45,15 @@ app.get('/:id', rateLimit({ limit: 10 }), (req, res) => {
     });
 });
 
-app.listen(3000, () => console.log('listening on 3000'));
+let port = 3000;
+const portArgIndex = process.argv.findIndex((x) => x == '-p');
+if (portArgIndex !== -1) {
+    const portArg = Number(process.argv[portArgIndex + 1]);
+    if (!Number.isInteger(portArg)) {
+        console.error('Specified port is not a valid number.');
+        exit(1);
+    }
+    port = portArg;
+}
+
+app.listen(port, () => console.log(`listening on ${port}`));

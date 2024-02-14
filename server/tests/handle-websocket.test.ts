@@ -69,7 +69,7 @@ describe('handleWebSocket', () => {
                 assert.equal(conn?.channel?.id, requestedId);
             }
         );
-        
+
         it('should limit connections above the config limit', () => {});
     });
 });

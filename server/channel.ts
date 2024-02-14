@@ -51,7 +51,7 @@ export class AppChannel {
         connection.channel = this;
 
         connection.on('message', (data) => {
-            this.handleMessage(connection, data)
+            this.handleMessage(connection, data);
         });
         connection.on('close', () => {
             this.removeConnection(connection.id);
@@ -70,7 +70,9 @@ export class AppChannel {
         const connection = this.connections.find((c) => c.id === id);
 
         if (!connection) {
-            this.logger.log(`Channel with id: ${this.id} - no connection with id: ${id} was found.`);
+            this.logger.log(
+                `Channel with id: ${this.id} - no connection with id: ${id} was found.`
+            );
             return;
         }
 
