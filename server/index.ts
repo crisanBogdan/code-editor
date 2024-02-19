@@ -16,6 +16,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = e();
 expressWs(app);
 
+app.disable('x-powered-by');
+
 app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(function (req, res, next) {
     if (toobusy()) {
@@ -28,7 +30,16 @@ app.use(function (req, res, next) {
     res.setHeader('Content-Security-Policy', "default-src 'self'; ");
     next();
 });
-app.use(e.static(join(__dirname, '../..')));
+app.use(
+    e.static(join(__dirname, '../..'), {
+        maxAge: 1000 * 60 * 60 * 24 * 7, // one week
+        setHeaders: (res, path) => {
+            if (path.endsWith('.html')) {
+                res.setHeader('Cache-Control', 'no-cache');
+            }
+        },
+    })
+);
 
 app.get('/:id', rateLimit({ limit: 10 }), (req, res) => {
     res.sendFile(join(__dirname, '../../index.html'));
@@ -54,6 +65,13 @@ if (portArgIndex !== -1) {
         exit(1);
     }
     port = portArg;
+}
+
+if (process.argv.includes('-log')) {
+    app.use((req, res, next) => {
+        console.log(`Received request from: ${req.ip} for ${req.path}`);
+        return next();
+    });
 }
 
 app.listen(port, () => console.log(`listening on ${port}`));

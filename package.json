@@ -26,6 +26,7 @@
     "@types/node": "^20.11.15",
     "@types/toobusy-js": "^0.5.4",
     "@types/uuid": "^9.0.8",
+    "prettier": "^3.2.5",
     "typescript": "^5.3.3"
   }
 }

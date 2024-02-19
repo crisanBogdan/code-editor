@@ -1,1 +1,1 @@
-find . \( -path ./node_modules -prune -o -path ./.git -prune \) -o -print | grep '\.ts$' | xargs prettier -w
+find . \( -path ./node_modules -prune -o -path ./.git -prune \) -o -print | grep '\.ts$' | xargs npx prettier -w
